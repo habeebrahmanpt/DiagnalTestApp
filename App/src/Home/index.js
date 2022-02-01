@@ -17,7 +17,6 @@ export default class Home extends React.Component {
             searchList: []
         };
         this.lastListCount = 0;
-        this.isRequesting = true;
     }
     componentDidMount() {
         this.getMovies(0, 20);
@@ -31,17 +30,19 @@ export default class Home extends React.Component {
     getMovies(skip, take) {
         console.log('getMovies', skip)
         const movieData = getMovieList(skip, take)
-        this.lastListCount = movieData.page['page-size-returned']
+        if (movieData) {
+            this.lastListCount = movieData.page['page-size-returned']
+            if (skip == 0) {
+                this.setState({
+                    tittle: movieData.page.title,
+                    movieList: movieData.page['content-items'].content
+                })
+            } else {
+                this.setState({
+                    movieList: [...this.state.movieList, ...movieData.page['content-items'].content]
+                })
+            }
 
-        if (skip == 0) {
-            this.setState({
-                tittle: movieData.page.title,
-                movieList: movieData.page['content-items'].content
-            })
-        } else {
-            this.setState({
-                movieList: [...this.state.movieList, ...movieData.page['content-items'].content]
-            })
         }
 
     }

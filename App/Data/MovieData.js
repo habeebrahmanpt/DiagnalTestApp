@@ -10,6 +10,8 @@ export const getMovieList = (skip, take) => {
         return JSON2
     } else if (skip == 40) {
         return JSON3
+    }else{
+        return null
     }
 
 }
