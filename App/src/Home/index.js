@@ -20,6 +20,8 @@ export default class Home extends React.Component {
     }
     componentDidMount() {
         this.getMovies(0, 20);
+        this.flatListRef.scrollToOffset({ animated: true, offset: 35 });
+
     }
 
 
@@ -95,6 +97,7 @@ export default class Home extends React.Component {
         return (
             <View style={styles.container}>
                 <FlatList
+                    ref={(ref) => { this.flatListRef = ref; }}
                     data={movieList}
                     contentContainerStyle={styles.flatListContainer}
                     renderItem={this.renderDataItem.bind(this)}
@@ -132,7 +135,7 @@ export default class Home extends React.Component {
                             searchList: movieList
                         })
                     }}>
-                        <Image style={styles.headerBack} source={Images.search} />
+                        <Image style={styles.headerSearchIcon} source={Images.search} />
                     </TouchableOpacity>
                 </View>
             </View>

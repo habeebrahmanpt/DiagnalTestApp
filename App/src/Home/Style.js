@@ -25,8 +25,8 @@ export default StyleSheet.create({
         width: '100%'
     },
     headerBack: {
-        width: 25,
-        height: 25
+        width: 20,
+        height: 20
     },
     headerSearchIcon: {
         width: 25,
@@ -37,7 +37,7 @@ export default StyleSheet.create({
         marginStart: 12,
         height: 45,
         textAlignVertical: 'center',
-        fontSize: 16,
+        fontSize: 20,
         color: '#fff',
         fontFamily: Fonts.Bold
     },
@@ -52,7 +52,7 @@ export default StyleSheet.create({
     },
     flatListItem: {
         width: '33.33%',
-        marginTop: 15,
+        marginTop: 30,
         justifyContent: 'center',
         alignContent: 'center',
         alignItems: 'center',
